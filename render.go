@@ -174,6 +174,11 @@ func (r *Render) prepareOptions() {
 	}
 }
 
+// SetIsDevelopment dynamicly figure out if render should recompile templates
+func (r *Render) SetIsDevelopment(value bool) {
+	r.opt.IsDevelopment = value
+}
+
 func (r *Render) compileTemplates() {
 	if r.opt.Asset == nil || r.opt.AssetNames == nil {
 		r.compileTemplatesFromDir()
