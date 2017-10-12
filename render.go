@@ -397,6 +397,40 @@ func (r *Render) HTML(w io.Writer, status int, name string, binding interface{},
 	return r.Render(w, h, binding)
 }
 
+// File rendor contents to file.
+func (r *Render) File(filename, name string, binding interface{}) error {
+	r.templatesLk.Lock()
+	defer r.templatesLk.Unlock()
+
+	// If we are in development mode, recompile the templates on every HTML request.
+	if r.opt.IsDevelopment {
+		r.compileTemplates()
+	}
+
+	// Assign a layout if there is one.
+	if len(r.opt.Layout) > 0 {
+		r.addLayoutFuncs(name, binding)
+		name = r.opt.Layout
+	}
+
+	head := Head{
+		ContentType: r.opt.HTMLContentType + r.compiledCharset,
+	}
+
+	h := HTML{
+		Head:      head,
+		Name:      name,
+		Templates: r.templates,
+	}
+
+	f, err := os.Create(filename)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	return r.Render(f, h, binding)
+}
+
 // JSON marshals the given interface object and writes the JSON response.
 func (r *Render) JSON(w io.Writer, status int, v interface{}) error {
 	head := Head{
