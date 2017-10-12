@@ -1,4 +1,4 @@
-# Render [![GoDoc](http://godoc.org/github.com/unrolled/render?status.svg)](http://godoc.org/github.com/unrolled/render) [![Build Status](https://travis-ci.org/unrolled/render.svg)](https://travis-ci.org/unrolled/render)
+# Render [![GoDoc](http://godoc.org/github.com/xwl7001/render?status.svg)](http://godoc.org/github.com/xwl7001/render) [![Build Status](https://travis-ci.org/xwl7001/render.svg)](https://travis-ci.org/xwl7001/render)
 
 Render is a package that provides functionality for easily rendering JSON, XML, text, binary data, and HTML templates. This package is based on the [Martini](https://github.com/go-martini/martini) [render](https://github.com/martini-contrib/render) work.
 
@@ -22,7 +22,7 @@ import (
     "encoding/xml"
     "net/http"
 
-    "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+    "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
 )
 
 type ExampleXml struct {
@@ -242,7 +242,7 @@ import (
     "encoding/xml"
     "net/http"
 
-    "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+    "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
 )
 
 type ExampleXml struct {
@@ -296,7 +296,7 @@ import (
     "encoding/xml"
     "net/http"
 
-    "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+    "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
 )
 
 type ExampleXml struct {
@@ -376,7 +376,7 @@ import (
 
     "github.com/labstack/echo"
     "github.com/labstack/echo/engine/standard"
-    "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+    "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
 )
 
 type RenderWrapper struct { // We need to wrap the renderer because we need a different signature for echo.
@@ -411,7 +411,7 @@ import (
     "net/http"
 
     "github.com/gin-gonic/gin"
-    "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+    "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
 )
 
 func main() {
@@ -439,7 +439,7 @@ import (
 
     "github.com/zenazn/goji"
     "github.com/zenazn/goji/web"
-    "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+    "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
 )
 
 func main() {
@@ -463,7 +463,7 @@ import (
     "net/http"
 
     "github.com/urfave/negroni"
-    "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+    "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
 )
 
 func main() {
@@ -491,7 +491,7 @@ import (
     "net/http"
 
     "github.com/pilu/traffic"
-    "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+    "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
 )
 
 func main() {

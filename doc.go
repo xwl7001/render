@@ -6,7 +6,7 @@
       "encoding/xml"
       "net/http"
 
-      "github.com/unrolled/render"  // or "gopkg.in/unrolled/render.v1"
+      "github.com/xwl7001/render"  // or "gopkg.in/xwl7001/render.v1"
   )
 
   type ExampleXml struct {
