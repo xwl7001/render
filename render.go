@@ -327,6 +327,15 @@ func (r *Render) addLayoutFuncs(name string, binding interface{}) {
 			}
 			return "", nil
 		},
+		"include": func(includePath string) (template.HTML, error) {
+			includePath = "includes/" + includePath
+			buf, err := r.execute(includePath, binding)
+			// Return safe HTML here since we are rendering our own template.
+			return template.HTML(buf.String()), err
+		},
+		"htmlSafe": func(t string) template.HTML {
+			return template.HTML(t)
+		},
 	}
 	if tpl := r.templates.Lookup(name); tpl != nil {
 		tpl.Funcs(funcs)

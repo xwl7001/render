@@ -18,4 +18,10 @@ var helperFuncs = template.FuncMap{
 	"current": func() (string, error) {
 		return "", nil
 	},
+	"include": func() (string, error) {
+		return "", nil
+	},
+	"htmlSafe": func(t string) string {
+		return t
+	},
 }
