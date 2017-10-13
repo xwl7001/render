@@ -406,8 +406,16 @@ func (r *Render) HTML(w io.Writer, status int, name string, binding interface{},
 	return r.Render(w, h, binding)
 }
 
+// HTMLWithLayout builds up the response from the specified layout, template and bindings.
+func (r *Render) HTMLWithLayout(w io.Writer, status int, layout, name string, binding interface{}) error {
+	opt := HTMLOptions{
+		Layout: layout,
+	}
+	return r.HTML(w, status, name, binding, opt)
+}
+
 // File rendor contents to file.
-func (r *Render) File(filename, name string, binding interface{}) error {
+func (r *Render) File(filename, name string, binding interface{}, layout ...string) error {
 	r.templatesLk.Lock()
 	defer r.templatesLk.Unlock()
 
@@ -416,10 +424,17 @@ func (r *Render) File(filename, name string, binding interface{}) error {
 		r.compileTemplates()
 	}
 
+	opt := HTMLOptions{
+		Layout: r.opt.Layout,
+	}
+	if len(layout) > 0 && len(layout[0]) > 0 {
+		opt.Layout = layout[0]
+	}
+
 	// Assign a layout if there is one.
-	if len(r.opt.Layout) > 0 {
+	if len(opt.Layout) > 0 {
 		r.addLayoutFuncs(name, binding)
-		name = r.opt.Layout
+		name = opt.Layout
 	}
 
 	head := Head{
