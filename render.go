@@ -328,7 +328,7 @@ func (r *Render) addLayoutFuncs(name string, binding interface{}) {
 			return "", nil
 		},
 		"import": func(includePath string) (template.HTML, error) {
-			includePath = "imports/" + includePath
+			// includePath = "imports/" + includePath
 			buf, err := r.execute(includePath, binding)
 			// Return safe HTML here since we are rendering our own template.
 			return template.HTML(buf.String()), err
